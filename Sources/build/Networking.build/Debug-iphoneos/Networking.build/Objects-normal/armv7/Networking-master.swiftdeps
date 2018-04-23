@@ -1,0 +1,10 @@
+version: "Apple Swift version 4.1 (swiftlang-902.0.48 clang-902.0.37.1)"
+options: "ee749d3d6ac55ba03af678e00af8994f"
+build_time: [1524484173, 216903000]
+inputs:
+  "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/NetworkManager.swift": [1524483803, 0]
+  "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/ParameterEncoder.swift": [1523140428, 0]
+  "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/NetworkRouter.swift": [1523140423, 0]
+  "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/EndPointType.swift": [1523140416, 0]
+  "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/Router.swift": [1524484166, 0]
+  "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/NetworkResponse.swift": [1523140404, 0]

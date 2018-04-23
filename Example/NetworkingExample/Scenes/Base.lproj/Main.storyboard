@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LPn-GP-HPy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Post List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PostListViewController" customModule="NetworkingExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zOn-fk-jbl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Post" id="wWI-NA-bci" customClass="PostListTableViewCell" customModule="NetworkingExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wWI-NA-bci" id="P3o-hd-vbs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="bMm-sa-A9K" kind="show" identifier="showPostDetail" id="tqO-mZ-Sm6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="o6m-tL-Wkg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dNI-tz-Zd5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zOn-fk-jbl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7pJ-K6-hx8"/>
+                            <constraint firstItem="zOn-fk-jbl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ALJ-ts-Pif"/>
+                            <constraint firstAttribute="trailing" secondItem="zOn-fk-jbl" secondAttribute="trailing" id="LHF-zw-vqI"/>
+                            <constraint firstItem="zOn-fk-jbl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="U2g-Rt-9qG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="313-xl-ALQ"/>
+                    <connections>
+                        <outlet property="postListPresenter" destination="tep-Ya-KjO" id="o9U-0I-PdJ"/>
+                        <outlet property="postListTableView" destination="zOn-fk-jbl" id="Wby-Ue-PWm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="tep-Ya-KjO" customClass="PostListPresenter" customModule="NetworkingExample" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="1079.2" y="133.5832083958021"/>
+        </scene>
+        <!--Post Detail View Controller-->
+        <scene sceneID="c1G-GW-Zxf">
+            <objects>
+                <viewController id="bMm-sa-A9K" customClass="PostDetailViewController" customModule="NetworkingExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Snw-UF-bdj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHd-5w-awI">
+                                <rect key="frame" x="30" y="94" width="315" height="543"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2gC-xS-TE9" firstAttribute="trailing" secondItem="iHd-5w-awI" secondAttribute="trailing" constant="30" id="Xyt-Rn-6v2"/>
+                            <constraint firstItem="2gC-xS-TE9" firstAttribute="bottom" secondItem="iHd-5w-awI" secondAttribute="bottom" constant="30" id="a8u-9B-Cuc"/>
+                            <constraint firstItem="iHd-5w-awI" firstAttribute="top" secondItem="2gC-xS-TE9" secondAttribute="top" constant="30" id="oZ5-Du-OPc"/>
+                            <constraint firstItem="iHd-5w-awI" firstAttribute="leading" secondItem="2gC-xS-TE9" secondAttribute="leading" constant="30" id="ybt-MU-MIZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2gC-xS-TE9"/>
+                    </view>
+                    <connections>
+                        <outlet property="postBodyLabel" destination="iHd-5w-awI" id="1es-le-ODe"/>
+                        <outlet property="postDetailPresenter" destination="OI2-Co-ybn" id="zEg-rs-XdH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24V-yU-g1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="OI2-Co-ybn" customClass="PostDetailPresenter" customModule="NetworkingExample" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="2030" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RUr-eF-5Bx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LPn-GP-HPy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mxc-L6-e1K">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Kvn-NC-nAe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2aD-72-t3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>

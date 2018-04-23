@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/seraphindes/Library/Developer/Xcode/DerivedData/Networking-alguymwenmvlwnallixhttlseizu/Build/Products/Debug-iphoneos/Networking.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/seraphindes/Développement/poc/poc-lib-networking/Sources/build/Networking.build/Debug-iphoneos/Networking.build/unextended-module.modulemap',
+    }]
+  }]
+}

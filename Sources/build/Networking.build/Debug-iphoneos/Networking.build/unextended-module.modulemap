@@ -1,0 +1,10 @@
+framework module Networking {
+  umbrella header "Networking.h"
+
+  export *
+  module * { export * }
+}
+
+module Networking.__Swift {
+    exclude header "Networking-Swift.h"
+}

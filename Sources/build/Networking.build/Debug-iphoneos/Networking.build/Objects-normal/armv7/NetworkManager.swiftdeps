@@ -1,0 +1,99 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "NetworkManager"
+provides-nominal:
+- "10Networking14NetworkManagerC"
+provides-member:
+- ["10Networking14NetworkManagerC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "BooleanLiteralType"
+- "NSURLRequest"
+- "NetworkManager"
+- "TimeInterval"
+- "URLSession"
+depends-member:
+- ["s7CVarArgP", "CachePolicy"]
+- ["s7CVarArgP", "shared"]
+- ["So12NSURLRequestC11CachePolicyO", "reloadIgnoringLocalAndRemoteCacheData"]
+- ["s28CustomDebugStringConvertibleP", "CachePolicy"]
+- ["s28CustomDebugStringConvertibleP", "shared"]
+- ["s23CustomStringConvertibleP", "CachePolicy"]
+- ["s23CustomStringConvertibleP", "shared"]
+- ["s9EquatableP", "CachePolicy"]
+- ["s9EquatableP", "reloadIgnoringLocalAndRemoteCacheData"]
+- ["s9EquatableP", "shared"]
+- ["s8HashableP", "CachePolicy"]
+- ["s8HashableP", "reloadIgnoringLocalAndRemoteCacheData"]
+- ["s8HashableP", "shared"]
+- ["So8NSCodingP", "CachePolicy"]
+- ["So9NSCopyingP", "CachePolicy"]
+- ["So16NSMutableCopyingP", "CachePolicy"]
+- ["So8NSObjectC", "CachePolicy"]
+- ["So8NSObjectC", "shared"]
+- ["So16NSObjectProtocolP", "CachePolicy"]
+- ["So16NSObjectProtocolP", "shared"]
+- ["So14NSSecureCodingP", "CachePolicy"]
+- ["So12NSURLRequestC", "CachePolicy"]
+- ["10Networking14NetworkManagerC", "NSURLRequest"]
+- ["10Networking14NetworkManagerC", "TimeInterval"]
+- ["10Networking14NetworkManagerC", "URLSession"]
+- ["10Networking14NetworkManagerC", "cachePolicy"]
+- ["10Networking14NetworkManagerC", "defaultUrlSession"]
+- ["10Networking14NetworkManagerC", "deinit"]
+- ["10Networking14NetworkManagerC", "init"]
+- ["10Networking14NetworkManagerC", "showDebugLog"]
+- ["10Networking14NetworkManagerC", "showNetworkActivityIndicator"]
+- ["10Networking14NetworkManagerC", "timeoutInterval"]
+- ["s16RawRepresentableP", "reloadIgnoringLocalAndRemoteCacheData"]
+- ["So10URLSessionC", "shared"]
+- ["s35_HasCustomAnyHashableRepresentationP", "CachePolicy"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "CachePolicy"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
+depends-nominal:
+- "s7CVarArgP"
+- "So12NSURLRequestC11CachePolicyO"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "s9EquatableP"
+- "s8HashableP"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So14NSSecureCodingP"
+- "So12NSURLRequestC"
+- "10Networking14NetworkManagerC"
+- "s16RawRepresentableP"
+- "So10URLSessionC"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/Networking.h"
+- "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/build/Networking.build/Debug-iphoneos/Networking.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "24733e6689f4f8fce6d404ff89e6036d"

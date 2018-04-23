@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/seraphindes/Library/Developer/Xcode/DerivedData/Networking-alguymwenmvlwnallixhttlseizu/Build/Products/Debug-iphonesimulator/Networking.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Networking-Swift.h",
+          'external-contents': "/Users/seraphindes/Library/Developer/Xcode/DerivedData/Networking-alguymwenmvlwnallixhttlseizu/Build/Products/Debug-iphonesimulator/Networking.framework/Headers/Networking-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Networking.h",
+          'external-contents': "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/Networking/Networking.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/seraphindes/Library/Developer/Xcode/DerivedData/Networking-alguymwenmvlwnallixhttlseizu/Build/Products/Debug-iphonesimulator/Networking.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/seraphindes/De\u0301veloppement/poc/poc-lib-networking/Sources/build/Networking.build/Debug-iphonesimulator/Networking.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
