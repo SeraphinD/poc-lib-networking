@@ -17,9 +17,6 @@
 		899022E3208CB9B20091D777 /* PostDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899022E2208CB9B20091D777 /* PostDetailPresenter.swift */; };
 		899022EC208CC92C0091D777 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899022EB208CC92C0091D777 /* Presenter.swift */; };
 		899022EE208CC9360091D777 /* CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899022ED208CC9360091D777 /* CompletionHandler.swift */; };
-		89902303208DFFEF0091D777 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89902302208DFFEF0091D777 /* Networking.framework */; };
-		89902304208DFFF30091D777 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89902302208DFFEF0091D777 /* Networking.framework */; };
-		89902305208DFFF30091D777 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89902302208DFFEF0091D777 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8991F5942079707000DF8A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991F5932079707000DF8A35 /* AppDelegate.swift */; };
 		8991F5962079707000DF8A35 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991F5952079707000DF8A35 /* PostListViewController.swift */; };
 		8991F5992079707000DF8A35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8991F5972079707000DF8A35 /* Main.storyboard */; };
@@ -34,7 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				89902305208DFFF30091D777 /* Networking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +48,6 @@
 		899022E2208CB9B20091D777 /* PostDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailPresenter.swift; sourceTree = "<group>"; };
 		899022EB208CC92C0091D777 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		899022ED208CC9360091D777 /* CompletionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionHandler.swift; sourceTree = "<group>"; };
-		89902302208DFFEF0091D777 /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Networking.framework; sourceTree = "<group>"; };
 		8991F5902079707000DF8A35 /* NetworkingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8991F5932079707000DF8A35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8991F5952079707000DF8A35 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
@@ -67,8 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89902304208DFFF30091D777 /* Networking.framework in Frameworks */,
-				89902303208DFFEF0091D777 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +178,6 @@
 		8991F5922079707000DF8A35 /* NetworkingExample */ = {
 			isa = PBXGroup;
 			children = (
-				89902302208DFFEF0091D777 /* Networking.framework */,
 				899022CF208CAC3C0091D777 /* App */,
 				89634BAE207970FB00B6417E /* Data */,
 				899022CE208CAC260091D777 /* Scenes */,
