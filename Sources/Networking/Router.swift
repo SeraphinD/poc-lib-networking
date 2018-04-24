@@ -13,7 +13,10 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     private var task: URLSessionTask?
     
     public func request(_ route: EndPoint,
-                        completion: @escaping ServiceCompletionHandler) {
+                        completion: @escaping (_ data: Data?,
+        _ urlResponse: URLResponse?,
+        _ error: Error?)
+        -> ()) {
         
         let session = NetworkManager.defaultUrlSession
         
@@ -36,31 +39,80 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         task?.resume()
     }
     
-//    public func request<T: Codable>(_ route: EndPoint,
-//                                    completion: @escaping ServiceCompletionHandler) {
-//        let session = NetworkManager.defaultUrlSession
-//
-//        do {
-//            let request = try self.buildRequest(from: route)
-//            ActivityIndicatorManager.showNetworkActivityIndicator()
-//            task = session.dataTask(with: request,
-//                                    completionHandler: { (data, response, error) in
-//                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
-//                                        self.printResponse(request, data, error)
-//                                        DispatchQueue.main.async {
-//                                            completion(T(), response, error)
-//                                        }
-//            })
-//        } catch {
-//            DispatchQueue.main.async {
-//                completion(nil, nil, error)
-//            }
-//        }
-//        task?.resume()
-//    }
+    public func requestObject<ResponseObject: Codable>(_ route: EndPoint,
+                              completion: @escaping (_ responseObject: ResponseObject?,
+        _ urlResponse: URLResponse?,
+        _ error: Error?)
+        -> ()) {
+        
+        let session = NetworkManager.defaultUrlSession
+        
+        do {
+            let request = try self.buildRequest(from: route)
+            ActivityIndicatorManager.showNetworkActivityIndicator()
+            task = session.dataTask(with: request,
+                                    completionHandler: { (data, response, error) in
+                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
+                                        self.printResponse(request, data, error)
+                                        DispatchQueue.main.async {
+                                            guard let responseData = data else {
+                                                completion(nil, nil, error)
+                                                return
+                                            }
+                                            do {
+                                                let apiResponse = try JSONDecoder().decode(ResponseObject.self, from: responseData)
+                                                completion(apiResponse, nil, error)
+                                            } catch {
+                                                completion(nil, nil, error)
+                                            }
+                                        }
+            })
+        } catch {
+            DispatchQueue.main.async {
+                completion(nil, nil, error)
+            }
+        }
+        task?.resume()
+    }
+    
+    public func requestArray<ResponseObject: Codable>(_ route: EndPoint,
+                                                       completion: @escaping (_ responseArray: [ResponseObject]?,
+        _ urlResponse: URLResponse?,
+        _ error: Error?)
+        -> ()) {
+        
+        let session = NetworkManager.defaultUrlSession
+        
+        do {
+            let request = try self.buildRequest(from: route)
+            ActivityIndicatorManager.showNetworkActivityIndicator()
+            task = session.dataTask(with: request,
+                                    completionHandler: { (data, response, error) in
+                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
+                                        self.printResponse(request, data, error)
+                                        DispatchQueue.main.async {
+                                            guard let responseData = data else {
+                                                completion(nil, nil, error)
+                                                return
+                                            }
+                                            do {
+                                                let apiResponse = try JSONDecoder().decode([ResponseObject].self, from: responseData)
+                                                completion(apiResponse, nil, error)
+                                            } catch {
+                                                completion(nil, nil, error)
+                                            }
+                                        }
+            })
+        } catch {
+            DispatchQueue.main.async {
+                completion(nil, nil, error)
+            }
+        }
+        task?.resume()
+    }
     
     public func upload(_ route: EndPoint,
-                       completion: @escaping ServiceCompletionHandler) {
+                       completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
         // TODO : multipart upload
         fatalError()
     }

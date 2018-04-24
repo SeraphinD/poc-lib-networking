@@ -19,7 +19,7 @@ final class PostListPresenter: NSObject, Presenter {
     private let service = PostService()
     
     func getPostList() {
-        service.getPostList { posts, _ in
+        service.getPostList { posts in
             self.view?.setPostList(posts ?? [])
         }
     }

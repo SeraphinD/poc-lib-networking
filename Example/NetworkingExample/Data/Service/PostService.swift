@@ -13,61 +13,15 @@ final class PostService {
     
     private let router = Router<JSONPlaceholderEndPoint>()
     
-    func getPostList(completion: @escaping (_ posts: [PostResponse]?, _ error: Error?) -> ()) {
-        
-        router.request(.postList) { data, response, error in
-            
-            guard error == nil else {
-                completion(nil, error)
-                return
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                let result = NetworkResponse.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, error)
-                        return
-                    }
-                    do {
-                        let apiResponse = try JSONDecoder().decode([PostResponse].self, from: responseData)
-                        completion(apiResponse, nil)
-                    } catch {
-                        completion(nil, error)
-                    }
-                default: completion(nil, error)
-                }
-            }
+    func getPostList(completion: @escaping (_ posts: [PostResponse]?) -> ()) {
+        router.requestArray(.postList) { postList, _, _ in
+            completion(postList)
         }
     }
     
-    func getPost(_ id: Int, completion: @escaping (_ posts: PostResponse?, _ error: Error?) -> ()) {
-        
-        router.request(.post(id: id)) { data, response, error in
-            
-            guard error == nil else {
-                completion(nil, error)
-                return
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                let result = NetworkResponse.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, error)
-                        return
-                    }
-                    do {
-                        let apiResponse = try JSONDecoder().decode(PostResponse.self, from: responseData)
-                        completion(apiResponse, nil)
-                    } catch {
-                        completion(nil, error)
-                    }
-                default: completion(nil, error)
-                }
-            }
+    func getPost(_ id: Int, completion: @escaping (_ post: PostResponse?) -> ()) {
+        router.requestObject(.post(id: id)) { postResponse, _, _ in
+            completion(postResponse)
         }
     }
 }

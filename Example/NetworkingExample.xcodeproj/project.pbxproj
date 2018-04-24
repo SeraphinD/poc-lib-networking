@@ -22,8 +22,9 @@
 		8991F5992079707000DF8A35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8991F5972079707000DF8A35 /* Main.storyboard */; };
 		8991F59B2079707100DF8A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8991F59A2079707100DF8A35 /* Assets.xcassets */; };
 		8991F59E2079707100DF8A35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8991F59C2079707100DF8A35 /* LaunchScreen.storyboard */; };
-		89EA02E0208E73B000852FAF /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EA02DF208E73B000852FAF /* Networking.framework */; };
-		89EA02E1208E73B000852FAF /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89EA02DF208E73B000852FAF /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89CB4ACB208F7CAD00AB5BE5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */; };
+		89CB4ACC208F7CB200AB5BE5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */; };
+		89CB4ACD208F7CB200AB5BE5 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				89EA02E1208E73B000852FAF /* Networking.framework in Embed Frameworks */,
+				89CB4ACD208F7CB200AB5BE5 /* Networking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +59,7 @@
 		8991F59A2079707100DF8A35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8991F59D2079707100DF8A35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8991F59F2079707100DF8A35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89EA02DF208E73B000852FAF /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = ../../Sources/Networking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89EA02E0208E73B000852FAF /* Networking.framework in Frameworks */,
+				89CB4ACC208F7CB200AB5BE5 /* Networking.framework in Frameworks */,
+				89CB4ACB208F7CAD00AB5BE5 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +168,6 @@
 		8991F5872079707000DF8A35 = {
 			isa = PBXGroup;
 			children = (
-				89EA02DF208E73B000852FAF /* Networking.framework */,
 				8991F5922079707000DF8A35 /* NetworkingExample */,
 				8991F5912079707000DF8A35 /* Products */,
 				899022DC208CB40E0091D777 /* Frameworks */,
@@ -184,6 +185,7 @@
 		8991F5922079707000DF8A35 /* NetworkingExample */ = {
 			isa = PBXGroup;
 			children = (
+				89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */,
 				899022CF208CAC3C0091D777 /* App */,
 				89634BAE207970FB00B6417E /* Data */,
 				899022CE208CAC260091D777 /* Scenes */,

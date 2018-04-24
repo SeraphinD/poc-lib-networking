@@ -21,7 +21,7 @@ final class PostDetailPresenter: NSObject, Presenter {
     
     func getPostDetail(for post: PostResponse) {
         self.view?.bindPost(post)
-        service.getPost(post.id) { post, _ in
+        service.getPost(post.id) { post in
             guard let post = post else {
                 return
             }
