@@ -28,6 +28,8 @@
 		8991F56D20796CAC00DF8A35 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991F56720796CAC00DF8A35 /* NetworkManager.swift */; };
 		8991F56E20796CAC00DF8A35 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991F56820796CAC00DF8A35 /* EndPointType.swift */; };
 		8991F56F20796CAC00DF8A35 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991F56920796CAC00DF8A35 /* Router.swift */; };
+		89EA02DC208E6F2D00852FAF /* ActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EA02DB208E6F2D00852FAF /* ActivityIndicatorManager.swift */; };
+		89EA02DE208E707500852FAF /* UIImageView+SetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EA02DD208E707500852FAF /* UIImageView+SetImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		8991F56720796CAC00DF8A35 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8991F56820796CAC00DF8A35 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		8991F56920796CAC00DF8A35 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		89EA02DB208E6F2D00852FAF /* ActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		89EA02DD208E707500852FAF /* UIImageView+SetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SetImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +76,14 @@
 		8991F55B20796C7500DF8A35 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				89EA02DB208E6F2D00852FAF /* ActivityIndicatorManager.swift */,
 				8991F56820796CAC00DF8A35 /* EndPointType.swift */,
 				8991F56720796CAC00DF8A35 /* NetworkManager.swift */,
 				8991F56520796CAC00DF8A35 /* NetworkResponse.swift */,
 				8991F56420796CAC00DF8A35 /* NetworkRouter.swift */,
 				8991F56620796CAC00DF8A35 /* ParameterEncoder.swift */,
 				8991F56920796CAC00DF8A35 /* Router.swift */,
+				89EA02DD208E707500852FAF /* UIImageView+SetImage.swift */,
 				8991F55C20796C7500DF8A35 /* Networking.h */,
 				8991F55D20796C7500DF8A35 /* Info.plist */,
 			);
@@ -188,6 +194,8 @@
 				8991F56A20796CAC00DF8A35 /* NetworkRouter.swift in Sources */,
 				8991F56E20796CAC00DF8A35 /* EndPointType.swift in Sources */,
 				8991F56F20796CAC00DF8A35 /* Router.swift in Sources */,
+				89EA02DE208E707500852FAF /* UIImageView+SetImage.swift in Sources */,
+				89EA02DC208E6F2D00852FAF /* ActivityIndicatorManager.swift in Sources */,
 				8991F56B20796CAC00DF8A35 /* NetworkResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Networking
 
 final class PostDetailViewController: UIViewController {
     
     @IBOutlet fileprivate weak var postDetailPresenter: PostDetailPresenter!
     @IBOutlet fileprivate weak var postBodyLabel: UILabel!
+    @IBOutlet fileprivate weak var postImageView: UIImageView!
     
     var post: PostResponse!
 
@@ -26,6 +28,8 @@ extension PostDetailViewController: PostDetailView {
     
     func bindPost(_ post: PostResponse) {
         navigationItem.title = post.title
+        postImageView.setImage(with: URL(string: "https://picsum.photos/400/200"),
+                               showActivityIndicator: true)
         setPostDetail(with: post)
     }
     

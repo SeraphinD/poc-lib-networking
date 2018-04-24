@@ -69,17 +69,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHd-5w-awI">
-                                <rect key="frame" x="30" y="94" width="315" height="543"/>
+                                <rect key="frame" x="30" y="234" width="315" height="403"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K7I-1O-U4H">
+                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Pwv-IA-Xdu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2gC-xS-TE9" firstAttribute="trailing" secondItem="iHd-5w-awI" secondAttribute="trailing" constant="30" id="Xyt-Rn-6v2"/>
+                            <constraint firstItem="K7I-1O-U4H" firstAttribute="leading" secondItem="Snw-UF-bdj" secondAttribute="leading" id="YMY-GR-fwH"/>
+                            <constraint firstItem="K7I-1O-U4H" firstAttribute="top" secondItem="2gC-xS-TE9" secondAttribute="top" id="YcZ-zw-eoU"/>
                             <constraint firstItem="2gC-xS-TE9" firstAttribute="bottom" secondItem="iHd-5w-awI" secondAttribute="bottom" constant="30" id="a8u-9B-Cuc"/>
-                            <constraint firstItem="iHd-5w-awI" firstAttribute="top" secondItem="2gC-xS-TE9" secondAttribute="top" constant="30" id="oZ5-Du-OPc"/>
+                            <constraint firstItem="K7I-1O-U4H" firstAttribute="centerX" secondItem="iHd-5w-awI" secondAttribute="centerX" id="eHm-ib-iHR"/>
+                            <constraint firstItem="iHd-5w-awI" firstAttribute="top" secondItem="K7I-1O-U4H" secondAttribute="bottom" constant="20" id="iO4-4W-AVV"/>
                             <constraint firstItem="iHd-5w-awI" firstAttribute="leading" secondItem="2gC-xS-TE9" secondAttribute="leading" constant="30" id="ybt-MU-MIZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2gC-xS-TE9"/>
@@ -87,12 +97,13 @@
                     <connections>
                         <outlet property="postBodyLabel" destination="iHd-5w-awI" id="1es-le-ODe"/>
                         <outlet property="postDetailPresenter" destination="OI2-Co-ybn" id="zEg-rs-XdH"/>
+                        <outlet property="postImageView" destination="K7I-1O-U4H" id="tAJ-Jh-v16"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24V-yU-g1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="OI2-Co-ybn" customClass="PostDetailPresenter" customModule="NetworkingExample" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2030" y="134"/>
+            <point key="canvasLocation" x="2029.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RUr-eF-5Bx">

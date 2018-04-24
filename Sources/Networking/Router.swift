@@ -19,10 +19,10 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         
         do {
             let request = try self.buildRequest(from: route)
-            showNetworkActivityIndicator()
+            ActivityIndicatorManager.showNetworkActivityIndicator()
             task = session.dataTask(with: request,
                                     completionHandler: { (data, response, error) in
-                                        self.hideNetworkActivityIndicatorIfNeeded()
+                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
                                         self.printResponse(request, data, error)
                                         DispatchQueue.main.async {
                                             completion(data, response, error)
@@ -33,14 +33,43 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
                 completion(nil, nil, error)
             }
         }
-        self.task?.resume()
+        task?.resume()
+    }
+    
+//    public func request<T: Codable>(_ route: EndPoint,
+//                                    completion: @escaping ServiceCompletionHandler) {
+//        let session = NetworkManager.defaultUrlSession
+//
+//        do {
+//            let request = try self.buildRequest(from: route)
+//            ActivityIndicatorManager.showNetworkActivityIndicator()
+//            task = session.dataTask(with: request,
+//                                    completionHandler: { (data, response, error) in
+//                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
+//                                        self.printResponse(request, data, error)
+//                                        DispatchQueue.main.async {
+//                                            completion(T(), response, error)
+//                                        }
+//            })
+//        } catch {
+//            DispatchQueue.main.async {
+//                completion(nil, nil, error)
+//            }
+//        }
+//        task?.resume()
+//    }
+    
+    public func upload(_ route: EndPoint,
+                       completion: @escaping ServiceCompletionHandler) {
+        // TODO : multipart upload
+        fatalError()
     }
     
     public func cancel() {
-        self.task?.cancel()
+        task?.cancel()
     }
     
-    public func buildRequest(from route: EndPoint) throws -> URLRequest {
+    private func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
                                  cachePolicy: NetworkManager.cachePolicy,
                                  timeoutInterval: NetworkManager.timeoutInterval)
@@ -67,7 +96,7 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    public func configureParameters(bodyParameters: HTTPParameters? = nil,
+    private func configureParameters(bodyParameters: HTTPParameters? = nil,
                                     urlParameters: HTTPParameters? = nil,
                                     request: inout URLRequest) throws {
         do {
@@ -113,24 +142,6 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
                 print(responseData)
             } else {
                 print(error?.localizedDescription ?? "")
-            }
-        }
-    }
-    
-    private func showNetworkActivityIndicator() {
-        if NetworkManager.showNetworkActivityIndicator {
-            DispatchQueue.main.async {
-                // UI operations must be called from main thread
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            }
-        }
-    }
-    
-    private func hideNetworkActivityIndicatorIfNeeded() {
-        DispatchQueue.main.async {
-            // UI operations must be called from main thread
-            if UIApplication.shared.isNetworkActivityIndicatorVisible {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
