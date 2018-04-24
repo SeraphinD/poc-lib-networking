@@ -39,8 +39,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         task?.resume()
     }
     
-    public func requestObject<T: Codable>(_ route: EndPoint,
-                              completion: @escaping (_ responseObject: T?,
+    public func requestObject<T: Codable>(                                    _ route: EndPoint,
+                                                                              completion: @escaping (_ responseObject: T?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -76,7 +76,7 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     }
     
     public func requestArray<T: Codable>(_ route: EndPoint,
-                                                       completion: @escaping (_ responseArray: [T]?,
+                                         completion: @escaping (_ responseArray: [T]?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -149,8 +149,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     }
     
     private func configureParameters(bodyParameters: HTTPParameters? = nil,
-                                    urlParameters: HTTPParameters? = nil,
-                                    request: inout URLRequest) throws {
+                                     urlParameters: HTTPParameters? = nil,
+                                     request: inout URLRequest) throws {
         do {
             if let bodyParameters = bodyParameters {
                 try JSONParameterEncoder().encode(urlRequest: &request,

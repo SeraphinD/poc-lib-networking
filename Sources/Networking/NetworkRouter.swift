@@ -17,16 +17,16 @@ public protocol NetworkRouter {
         _ error: Error?)
         -> ())
     
-    func requestObject<ResponseObject: Codable>(_ route: EndPoint,
-                                                completion: @escaping (
-        _ responseObject: ResponseObject?,
+    func requestObject<T: Codable>(_ route: EndPoint,
+                                   completion: @escaping (
+        _ responseObject: T?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ())
     
-    func requestArray<ResponseObject: Codable>(_ route: EndPoint,
-                                                completion: @escaping (
-        _ responseArray: [ResponseObject]?,
+    func requestArray<T: Codable>(_ route: EndPoint,
+                                  completion: @escaping (
+        _ responseArray: [T]?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ())

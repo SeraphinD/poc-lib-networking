@@ -14,13 +14,13 @@ final class PostService {
     private let router = Router<JSONPlaceholderEndPoint>()
     
     func getPostList(completion: @escaping (_ posts: [PostResponse]?) -> ()) {
-        router.requestArray(.postList) { postList, _, _ in
+        router.requestArray(.postList) { (postList: [PostResponse]?, _, _) in
             completion(postList)
         }
     }
     
     func getPost(_ id: Int, completion: @escaping (_ post: PostResponse?) -> ()) {
-        router.requestObject(.post(id: id)) { postResponse, _, _ in
+        router.requestObject(.post(id: id)) { (postResponse: PostResponse?, _, _) in
             completion(postResponse)
         }
     }
