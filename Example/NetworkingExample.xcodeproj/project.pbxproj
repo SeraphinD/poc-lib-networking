@@ -22,24 +22,17 @@
 		8991F5992079707000DF8A35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8991F5972079707000DF8A35 /* Main.storyboard */; };
 		8991F59B2079707100DF8A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8991F59A2079707100DF8A35 /* Assets.xcassets */; };
 		8991F59E2079707100DF8A35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8991F59C2079707100DF8A35 /* LaunchScreen.storyboard */; };
-		89CB4ACB208F7CAD00AB5BE5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */; };
-		89CB4ACC208F7CB200AB5BE5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */; };
-		89CB4ACD208F7CB200AB5BE5 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		89634BF6207978A000B6417E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				89CB4ACD208F7CB200AB5BE5 /* Networking.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXContainerItemProxy section */
+		89CB4AD6208FAAC400AB5BE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89CB4AD1208FAAC400AB5BE5 /* Networking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8991F55920796C7500DF8A35;
+			remoteInfo = Networking;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		89634BA7207970F100B6417E /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
@@ -59,7 +52,7 @@
 		8991F59A2079707100DF8A35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8991F59D2079707100DF8A35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8991F59F2079707100DF8A35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = ../../Sources/Networking.framework; sourceTree = "<group>"; };
+		89CB4AD1208FAAC400AB5BE5 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../Sources/Networking.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CB4ACC208F7CB200AB5BE5 /* Networking.framework in Frameworks */,
-				89CB4ACB208F7CAD00AB5BE5 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +142,7 @@
 		899022DC208CB40E0091D777 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89CB4AD1208FAAC400AB5BE5 /* Networking.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,7 +177,6 @@
 		8991F5922079707000DF8A35 /* NetworkingExample */ = {
 			isa = PBXGroup;
 			children = (
-				89CB4ACA208F7CAD00AB5BE5 /* Networking.framework */,
 				899022CF208CAC3C0091D777 /* App */,
 				89634BAE207970FB00B6417E /* Data */,
 				899022CE208CAC260091D777 /* Scenes */,
@@ -193,6 +184,14 @@
 				899022D0208CAC460091D777 /* Supporting Files */,
 			);
 			path = NetworkingExample;
+			sourceTree = "<group>";
+		};
+		89CB4AD2208FAAC400AB5BE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89CB4AD7208FAAC400AB5BE5 /* Networking.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +204,6 @@
 				8991F58C2079707000DF8A35 /* Sources */,
 				8991F58D2079707000DF8A35 /* Frameworks */,
 				8991F58E2079707000DF8A35 /* Resources */,
-				89634BF6207978A000B6417E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,12 +240,28 @@
 			mainGroup = 8991F5872079707000DF8A35;
 			productRefGroup = 8991F5912079707000DF8A35 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 89CB4AD2208FAAC400AB5BE5 /* Products */;
+					ProjectRef = 89CB4AD1208FAAC400AB5BE5 /* Networking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8991F58F2079707000DF8A35 /* NetworkingExample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		89CB4AD7208FAAC400AB5BE5 /* Networking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Networking.framework;
+			remoteRef = 89CB4AD6208FAAC400AB5BE5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8991F58E2079707000DF8A35 /* Resources */ = {

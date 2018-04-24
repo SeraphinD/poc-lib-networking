@@ -39,8 +39,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         task?.resume()
     }
     
-    public func requestObject<ResponseObject: Codable>(_ route: EndPoint,
-                              completion: @escaping (_ responseObject: ResponseObject?,
+    public func requestObject<T: Codable>(_ route: EndPoint,
+                              completion: @escaping (_ responseObject: T?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -56,14 +56,14 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
                                         self.printResponse(request, data, error)
                                         DispatchQueue.main.async {
                                             guard let responseData = data else {
-                                                completion(nil, nil, error)
+                                                completion(nil, response, error)
                                                 return
                                             }
                                             do {
-                                                let apiResponse = try JSONDecoder().decode(ResponseObject.self, from: responseData)
-                                                completion(apiResponse, nil, error)
+                                                let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
+                                                completion(apiResponse, response, error)
                                             } catch {
-                                                completion(nil, nil, error)
+                                                completion(nil, response, error)
                                             }
                                         }
             })
@@ -75,8 +75,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         task?.resume()
     }
     
-    public func requestArray<ResponseObject: Codable>(_ route: EndPoint,
-                                                       completion: @escaping (_ responseArray: [ResponseObject]?,
+    public func requestArray<T: Codable>(_ route: EndPoint,
+                                                       completion: @escaping (_ responseArray: [T]?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -92,14 +92,14 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
                                         self.printResponse(request, data, error)
                                         DispatchQueue.main.async {
                                             guard let responseData = data else {
-                                                completion(nil, nil, error)
+                                                completion(nil, response, error)
                                                 return
                                             }
                                             do {
-                                                let apiResponse = try JSONDecoder().decode([ResponseObject].self, from: responseData)
-                                                completion(apiResponse, nil, error)
+                                                let apiResponse = try JSONDecoder().decode([T].self, from: responseData)
+                                                completion(apiResponse, response, error)
                                             } catch {
-                                                completion(nil, nil, error)
+                                                completion(nil, response, error)
                                             }
                                         }
             })
