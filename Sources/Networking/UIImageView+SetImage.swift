@@ -12,9 +12,7 @@ extension UIImageView {
                   placeholder: UIImage? = nil,
                   showActivityIndicator: Bool = false) {
         
-        guard let url = url else {
-            return
-        }
+        guard let url = url else { return }
         
         ActivityIndicatorManager.showNetworkActivityIndicator()
         
