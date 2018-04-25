@@ -13,7 +13,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     private var task: URLSessionTask?
     
     public func request(_ route: EndPoint,
-                        completion: @escaping (_ data: Data?,
+                        completion: @escaping (
+        _ data: Data?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -39,8 +40,9 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         task?.resume()
     }
     
-    public func requestObject<T: Codable>(                                    _ route: EndPoint,
-                                                                              completion: @escaping (_ responseObject: T?,
+    public func requestObject<T: Codable>(_ route: EndPoint,
+                                          completion: @escaping (
+        _ responseObject: T?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -76,7 +78,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     }
     
     public func requestArray<T: Codable>(_ route: EndPoint,
-                                         completion: @escaping (_ responseArray: [T]?,
+                                         completion: @escaping (
+        _ responseArray: [T]?,
         _ urlResponse: URLResponse?,
         _ error: Error?)
         -> ()) {
@@ -112,7 +115,10 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     }
     
     public func upload(_ route: EndPoint,
-                       completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+                       completion: @escaping (
+        _ data: Data?,
+        _ response: URLResponse?,
+        _ error: Error?) -> ()) {
         // TODO : multipart upload
         fatalError()
     }
