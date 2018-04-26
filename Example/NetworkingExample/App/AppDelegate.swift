@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: AuthApplicationServiceDelegate {
-    func applicationHandleUnauth(_ application: UIApplication) {
+extension AppDelegate: NetworkingAuthDelegate {
+    func networkingUnauthHandler() {
         
     }
 }

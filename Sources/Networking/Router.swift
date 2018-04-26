@@ -39,7 +39,7 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
                                             switch result {
                                             case .failure(let error):
                                                 if error == .unauthorized {
-                                                    NetworkManager.shared.delegate?.applicationHandleUnauth(UIApplication.shared)
+                                                    NetworkManager.shared.delegate?.networkingUnauthHandler()
                                                 }
                                             default: break
                                             }
