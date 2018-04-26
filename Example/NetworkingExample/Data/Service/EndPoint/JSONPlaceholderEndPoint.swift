@@ -19,7 +19,7 @@ extension JSONPlaceholderEndPoint: EndPointType {
     var baseURL: URL {
         guard let strUrl = Bundle.main.infoDictionary!["JSONPlaceholderAPIURL"] as? String,
             let url = URL(string: strUrl) else {
-            fatalError("Must declare base JSONPlaceholder api url in Info.plist")
+                fatalError("Must declare base JSONPlaceholder api url in Info.plist")
         }
         return url
     }

@@ -14,7 +14,7 @@ final class PostService {
     private let router = Router<JSONPlaceholderEndPoint>()
     
     func getPostList(completion: @escaping (_ posts: [PostResponse]?) -> ()) {
-        router.requestArray(.postList) { (postList: [PostResponse]?, _, _) in
+        router.auth.requestArray(.postList) { (postList: [PostResponse]?, _, _) in
             completion(postList)
         }
     }

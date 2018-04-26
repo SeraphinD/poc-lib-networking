@@ -29,7 +29,7 @@ extension UIImageView {
             image = placeholder
         }
         
-        let task = NetworkManager.defaultUrlSession.dataTask(with: url) { data, response, error in
+        let task = NetworkManager.shared.defaultUrlSession.dataTask(with: url) { data, response, error in
             
             ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
             

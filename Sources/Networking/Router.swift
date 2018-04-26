@@ -12,6 +12,13 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     
     private var task: URLSessionTask?
     
+    private(set) var handleNotAuth: Bool = false
+    
+    public var auth: Router {
+        handleNotAuth = true
+        return self
+    }
+    
     public func request(_ route: EndPoint,
                         completion: @escaping (
         _ data: Data?,
@@ -19,7 +26,7 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         _ error: Error?)
         -> ()) {
         
-        let session = NetworkManager.defaultUrlSession
+        let session = NetworkManager.shared.defaultUrlSession
         
         do {
             let request = try self.buildRequest(from: route)
@@ -27,6 +34,18 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
             task = session.dataTask(with: request,
                                     completionHandler: { (data, response, error) in
                                         ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
+                                        
+                                        if self.handleNotAuth, let result = response?.result {
+                                            switch result {
+                                            case .failure(let error):
+                                                if error == .unauthorized {
+                                                    NetworkManager.shared.delegate?.applicationHandleUnauth(UIApplication.shared)
+                                                }
+                                            default: break
+                                            }
+                                            completion(nil, response, error)
+                                        }
+                                        
                                         self.printResponse(request, data, error)
                                         DispatchQueue.main.async {
                                             completion(data, response, error)
@@ -47,34 +66,18 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         _ error: Error?)
         -> ()) {
         
-        let session = NetworkManager.defaultUrlSession
-        
-        do {
-            let request = try self.buildRequest(from: route)
-            ActivityIndicatorManager.showNetworkActivityIndicator()
-            task = session.dataTask(with: request,
-                                    completionHandler: { (data, response, error) in
-                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
-                                        self.printResponse(request, data, error)
-                                        DispatchQueue.main.async {
-                                            guard let responseData = data else {
-                                                completion(nil, response, error)
-                                                return
-                                            }
-                                            do {
-                                                let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
-                                                completion(apiResponse, response, error)
-                                            } catch {
-                                                completion(nil, response, error)
-                                            }
-                                        }
-            })
-        } catch {
-            DispatchQueue.main.async {
-                completion(nil, nil, error)
+        request(route) { (data, urlResponse, error) in
+            guard let responseData = data else {
+                completion(nil, urlResponse, error)
+                return
+            }
+            do {
+                let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
+                completion(apiResponse, urlResponse, error)
+            } catch {
+                completion(nil, urlResponse, error)
             }
         }
-        task?.resume()
     }
     
     public func requestArray<T: Codable>(_ route: EndPoint,
@@ -84,34 +87,18 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         _ error: Error?)
         -> ()) {
         
-        let session = NetworkManager.defaultUrlSession
-        
-        do {
-            let request = try self.buildRequest(from: route)
-            ActivityIndicatorManager.showNetworkActivityIndicator()
-            task = session.dataTask(with: request,
-                                    completionHandler: { (data, response, error) in
-                                        ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
-                                        self.printResponse(request, data, error)
-                                        DispatchQueue.main.async {
-                                            guard let responseData = data else {
-                                                completion(nil, response, error)
-                                                return
-                                            }
-                                            do {
-                                                let apiResponse = try JSONDecoder().decode([T].self, from: responseData)
-                                                completion(apiResponse, response, error)
-                                            } catch {
-                                                completion(nil, response, error)
-                                            }
-                                        }
-            })
-        } catch {
-            DispatchQueue.main.async {
-                completion(nil, nil, error)
+        request(route) { (data, urlResponse, error) in
+            guard let responseData = data else {
+                completion(nil, urlResponse, error)
+                return
+            }
+            do {
+                let apiResponse = try JSONDecoder().decode([T].self, from: responseData)
+                completion(apiResponse, urlResponse, error)
+            } catch {
+                completion(nil, urlResponse, error)
             }
         }
-        task?.resume()
     }
     
     public func upload(_ route: EndPoint,
@@ -129,8 +116,8 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     
     private func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
-                                 cachePolicy: NetworkManager.cachePolicy,
-                                 timeoutInterval: NetworkManager.timeoutInterval)
+                                 cachePolicy: NetworkManager.shared.cachePolicy,
+                                 timeoutInterval: NetworkManager.shared.timeoutInterval)
         request.httpMethod = route.method.rawValue
         do {
             switch route.encoding {
@@ -182,7 +169,7 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
     private func printResponse(_ request: URLRequest,
                                _ data: Data?,
                                _ error: Error?) {
-        if NetworkManager.showDebugLog {
+        if NetworkManager.shared.showDebugLog {
             let urlAsString = request.url?.absoluteString ?? ""
             let method = request.httpMethod != nil ? "\(request.httpMethod ?? "")" : ""
             

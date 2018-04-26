@@ -6,17 +6,25 @@
 //  Copyright © 2018 Seraphin DESUMEUR. All rights reserved.
 //
 
+public protocol AuthApplicationServiceDelegate {
+    func applicationHandleUnauth(_ application: UIApplication)
+}
+
 open class NetworkManager {
     
-    static var cachePolicy: NSURLRequest.CachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-    static var timeoutInterval: TimeInterval = 10.0
-    static var showNetworkActivityIndicator = true
-    static var defaultUrlSession = URLSession.shared
+    public static var shared = NetworkManager()
     
+    private init() {}
+    
+    public var cachePolicy: NSURLRequest.CachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+    public var timeoutInterval: TimeInterval = 10.0
+    public var showNetworkActivityIndicator = true
+    public var defaultUrlSession = URLSession.shared
+    public var delegate: AuthApplicationServiceDelegate?
     #if DEBUG
-    static var showDebugLog = true
+    public var showDebugLog = true
     #else
-    static var showDebugLog = false
+    public var showDebugLog = false
     #endif
 }
 

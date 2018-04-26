@@ -10,7 +10,7 @@ import Foundation
 
 final class ActivityIndicatorManager {
     static func showNetworkActivityIndicator() {
-        if NetworkManager.showNetworkActivityIndicator {
+        if NetworkManager.shared.showNetworkActivityIndicator {
             DispatchQueue.main.async {
                 // UI operations must be called from main thread
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
