@@ -8,24 +8,22 @@
 
 import Foundation
 
-protocol PostDetailView: class {
+@objc protocol PostDetailPresenterDelegate {
     func bindPost(_ post: PostResponse)
     func setPostDetail(with post: PostResponse)
 }
 
 final class PostDetailPresenter: NSObject, Presenter {
     
-    weak var view: PostDetailView?
-    
-    private let service = PostService()
+    @IBOutlet weak var delegate: PostDetailPresenterDelegate?
     
     func getPostDetail(for post: PostResponse) {
-        self.view?.bindPost(post)
-        service.getPost(post.id) { post in
+        self.delegate?.bindPost(post)
+        dataManager.getPost(post.id) { post in
             guard let post = post else {
                 return
             }
-            self.view?.setPostDetail(with: post)
+            self.delegate?.setPostDetail(with: post)
         }
     }
 }

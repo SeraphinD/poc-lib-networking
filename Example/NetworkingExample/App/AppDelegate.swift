@@ -11,18 +11,13 @@ import Networking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let dataManager = DataManager()
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        NetworkManager.shared.delegate = self
         return true
-    }
-}
-
-extension AppDelegate: NetworkingAuthDelegate {
-    func networkingUnauthHandler() {
-        
     }
 }
 

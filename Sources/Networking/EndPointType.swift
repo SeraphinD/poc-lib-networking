@@ -13,6 +13,7 @@ public protocol EndPointType {
     var encoding: ParameterEncoding? { get }
     var headers: HTTPHeaders? { get }
     var parameters: HTTPParameters? { get }
+    var authRequired: Bool { get }
 }
 
 public typealias HTTPHeaders = [String: String]

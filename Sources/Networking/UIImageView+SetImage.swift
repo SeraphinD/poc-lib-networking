@@ -6,11 +6,15 @@
 //  Copyright © 2018 Seraphin DESUMEUR. All rights reserved.
 //
 
+public enum ImageActivityIndicatorType {
+    case activityLight, activityDark, none
+}
+
 extension UIImageView {
     
     public func setImage(with url: URL?,
                   placeholder: UIImage? = nil,
-                  showActivityIndicator: Bool = false) {
+                  loader: ImageActivityIndicatorType = .none) {
         
         guard let url = url else { return }
         
@@ -18,8 +22,13 @@ extension UIImageView {
         
         // Show activity indicator view when image retrieving image
         let activityIndicatorView = UIActivityIndicatorView()
-        if showActivityIndicator {
+        if loader != .none {
             addSubview(activityIndicatorView)
+            if loader == .activityLight {
+                activityIndicatorView.activityIndicatorViewStyle = .white
+            } else if loader == .activityDark {
+                activityIndicatorView.activityIndicatorViewStyle = .gray
+            }
             activityIndicatorView.center = CGPoint(x: bounds.midX, y: bounds.midY)
             activityIndicatorView.startAnimating()
         }
@@ -35,7 +44,7 @@ extension UIImageView {
             
             // UI operations must be called from main thread
             DispatchQueue.main.async() {
-                if showActivityIndicator {
+                if loader != .none {
                     activityIndicatorView.stopAnimating()
                     activityIndicatorView.removeFromSuperview()
                 }

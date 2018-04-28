@@ -49,4 +49,8 @@ extension JSONPlaceholderEndPoint: EndPointType {
     var parameters: HTTPParameters? {
         return nil
     }
+    
+    var authRequired: Bool {
+        return false
+    }
 }

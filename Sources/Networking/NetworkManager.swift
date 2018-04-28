@@ -6,10 +6,6 @@
 //  Copyright © 2018 Seraphin DESUMEUR. All rights reserved.
 //
 
-public protocol NetworkingAuthDelegate {
-    func networkingUnauthHandler()
-}
-
 open class NetworkManager {
     
     public static var shared = NetworkManager()
@@ -20,7 +16,7 @@ open class NetworkManager {
     public var timeoutInterval: TimeInterval = 10.0
     public var showNetworkActivityIndicator = true
     public var defaultUrlSession = URLSession.shared
-    public var delegate: NetworkingAuthDelegate?
+    
     #if DEBUG
     public var showDebugLog = true
     #else

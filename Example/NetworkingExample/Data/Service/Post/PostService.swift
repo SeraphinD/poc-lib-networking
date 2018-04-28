@@ -9,12 +9,10 @@
 import Foundation
 import Networking
 
-final class PostService {
-    
-    private let router = Router<JSONPlaceholderEndPoint>()
+final class PostService: JSONPlaceholderService {
     
     func getPostList(completion: @escaping (_ posts: [PostResponse]?) -> ()) {
-        router.auth.requestArray(.postList) { (postList: [PostResponse]?, _, _) in
+        router.requestObject(.postList) { (postList: [PostResponse]?, _, _) in
             completion(postList)
         }
     }

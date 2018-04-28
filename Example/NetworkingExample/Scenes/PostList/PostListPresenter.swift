@@ -8,19 +8,17 @@
 
 import Foundation
 
-protocol PostListView: class {
+@objc protocol PostListPresenterDelegate {
     func setPostList(_ posts: [PostResponse])
 }
 
 final class PostListPresenter: NSObject, Presenter {
     
-    weak var view: PostListView?
-    
-    private let service = PostService()
+    @IBOutlet weak var delegate: PostListPresenterDelegate?
     
     func getPostList() {
-        service.getPostList { posts in
-            self.view?.setPostList(posts ?? [])
+        dataManager.getPostList { posts in
+            self.delegate?.setPostList(posts ?? [])
         }
     }
 }

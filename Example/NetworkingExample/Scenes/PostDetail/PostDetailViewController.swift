@@ -19,17 +19,16 @@ final class PostDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        postDetailPresenter.attach(view: self)
         postDetailPresenter.getPostDetail(for: post)
     }
 }
 
-extension PostDetailViewController: PostDetailView {
+extension PostDetailViewController: PostDetailPresenterDelegate {
     
     func bindPost(_ post: PostResponse) {
         navigationItem.title = post.title
         postImageView.setImage(with: URL(string: "https://picsum.photos/400/200"),
-                               showActivityIndicator: true)
+                               loader: .activityLight)
         setPostDetail(with: post)
     }
     

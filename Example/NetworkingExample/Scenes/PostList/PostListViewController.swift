@@ -17,7 +17,6 @@ final class PostListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        postListPresenter.attach(view: self)
         postListPresenter.getPostList()
     }
     
@@ -30,7 +29,7 @@ final class PostListViewController: UIViewController {
     }
 }
 
-extension PostListViewController: PostListView {
+extension PostListViewController: PostListPresenterDelegate {
     func setPostList(_ posts: [PostResponse]) {
         postListDatasource.removeAll()
         posts.forEach { post in

@@ -6,19 +6,19 @@
 //  Copyright © 2018 Seraphin DESUMEUR. All rights reserved.
 //
 
+public protocol NetworkRouterDelegate {
+    func router<EndPoint: EndPointType>(_ router: Router<EndPoint>, didReceiveUnauthorized error: HTTPError)
+    // func router<EndPoint: EndPointType>(_ router: Router<EndPoint>, didReceiveForbidden error: HTTPError)
+}
+
 public class Router<EndPoint: EndPointType>: NetworkRouter {
     
     public init() {}
     
+    public var delegate: NetworkRouterDelegate?
+    
     private var task: URLSessionTask?
-    
-    private(set) var handleNotAuth: Bool = false
-    
-    public var auth: Router {
-        handleNotAuth = true
-        return self
-    }
-    
+
     public func request(_ route: EndPoint,
                         completion: @escaping (
         _ data: Data?,
@@ -29,18 +29,24 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
         let session = NetworkManager.shared.defaultUrlSession
         
         do {
-            let request = try self.buildRequest(from: route)
+            let request = try buildRequest(from: route)
+            
             ActivityIndicatorManager.showNetworkActivityIndicator()
+            
             task = session.dataTask(with: request,
                                     completionHandler: { (data, response, error) in
+                                        
                                         ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
                                         
-                                        if self.handleNotAuth, let result = response?.result {
+                                        if route.authRequired, let result = response?.result {
                                             switch result {
                                             case .failure(let error):
                                                 if error == .unauthorized {
-                                                    NetworkManager.shared.delegate?.networkingUnauthHandler()
+                                                    self.delegate?.router(self, didReceiveUnauthorized: error)
                                                 }
+//                                                if error == .forbidden {
+//                                                    self.delegate?.router(self, didReceiveForbidden: error)
+//                                                }
                                             default: break
                                             }
                                             completion(nil, response, error)
@@ -73,27 +79,6 @@ public class Router<EndPoint: EndPointType>: NetworkRouter {
             }
             do {
                 let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
-                completion(apiResponse, urlResponse, error)
-            } catch {
-                completion(nil, urlResponse, error)
-            }
-        }
-    }
-    
-    public func requestArray<T: Codable>(_ route: EndPoint,
-                                         completion: @escaping (
-        _ responseArray: [T]?,
-        _ urlResponse: URLResponse?,
-        _ error: Error?)
-        -> ()) {
-        
-        request(route) { (data, urlResponse, error) in
-            guard let responseData = data else {
-                completion(nil, urlResponse, error)
-                return
-            }
-            do {
-                let apiResponse = try JSONDecoder().decode([T].self, from: responseData)
                 completion(apiResponse, urlResponse, error)
             } catch {
                 completion(nil, urlResponse, error)

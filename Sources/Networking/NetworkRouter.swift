@@ -24,12 +24,5 @@ public protocol NetworkRouter {
         _ error: Error?)
         -> ())
     
-    func requestArray<T: Codable>(_ route: EndPoint,
-                                  completion: @escaping (
-        _ responseArray: [T]?,
-        _ urlResponse: URLResponse?,
-        _ error: Error?)
-        -> ())
-    
     func cancel()
 }

@@ -9,7 +9,7 @@
 struct Constants {
     struct Storyboard {
         struct PostList {
-            static let postListCell = "Post"
+            static let postListCell = "postCell"
             static let showPostDetail = "showPostDetail"
         }
     }
