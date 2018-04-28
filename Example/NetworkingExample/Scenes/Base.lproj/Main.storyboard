@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Delegate-->
+        <!--PostList-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PostListViewController" customModule="NetworkingExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="PostList" customClass="PostListViewController" customModule="NetworkingExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="133.5832083958021"/>
         </scene>
-        <!--Delegate-->
+        <!--PostDetail-->
         <scene sceneID="c1G-GW-Zxf">
             <objects>
-                <viewController id="bMm-sa-A9K" customClass="PostDetailViewController" customModule="NetworkingExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bMm-sa-A9K" userLabel="PostDetail" customClass="PostDetailViewController" customModule="NetworkingExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Snw-UF-bdj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,11 +88,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="K7I-1O-U4H" firstAttribute="centerX" secondItem="2gC-xS-TE9" secondAttribute="centerX" id="BZn-dX-vDi"/>
                             <constraint firstItem="2gC-xS-TE9" firstAttribute="trailing" secondItem="iHd-5w-awI" secondAttribute="trailing" constant="30" id="Xyt-Rn-6v2"/>
                             <constraint firstItem="K7I-1O-U4H" firstAttribute="leading" secondItem="Snw-UF-bdj" secondAttribute="leading" id="YMY-GR-fwH"/>
                             <constraint firstItem="K7I-1O-U4H" firstAttribute="top" secondItem="2gC-xS-TE9" secondAttribute="top" id="YcZ-zw-eoU"/>
                             <constraint firstItem="2gC-xS-TE9" firstAttribute="bottom" secondItem="iHd-5w-awI" secondAttribute="bottom" constant="30" id="a8u-9B-Cuc"/>
-                            <constraint firstItem="K7I-1O-U4H" firstAttribute="centerX" secondItem="iHd-5w-awI" secondAttribute="centerX" id="eHm-ib-iHR"/>
                             <constraint firstItem="iHd-5w-awI" firstAttribute="top" secondItem="K7I-1O-U4H" secondAttribute="bottom" constant="20" id="iO4-4W-AVV"/>
                             <constraint firstItem="iHd-5w-awI" firstAttribute="leading" secondItem="2gC-xS-TE9" secondAttribute="leading" constant="30" id="ybt-MU-MIZ"/>
                         </constraints>
@@ -111,7 +111,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2029.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1898" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RUr-eF-5Bx">
@@ -129,7 +129,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aD-72-t3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+            <point key="canvasLocation" x="241" y="134"/>
         </scene>
     </scenes>
 </document>

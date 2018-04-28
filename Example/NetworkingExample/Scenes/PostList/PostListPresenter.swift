@@ -17,8 +17,8 @@ final class PostListPresenter: NSObject, Presenter {
     @IBOutlet weak var delegate: PostListPresenterDelegate?
     
     func getPostList() {
-        dataManager.getPostList { posts in
-            self.delegate?.setPostList(posts ?? [])
+        dataManager.getPostList { [weak self] posts in
+            self?.delegate?.setPostList(posts ?? [])
         }
     }
 }

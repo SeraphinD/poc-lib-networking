@@ -19,11 +19,11 @@ final class PostDetailPresenter: NSObject, Presenter {
     
     func getPostDetail(for post: PostResponse) {
         self.delegate?.bindPost(post)
-        dataManager.getPost(post.id) { post in
+        dataManager.getPost(post.id) { [weak self] post in
             guard let post = post else {
                 return
             }
-            self.delegate?.setPostDetail(with: post)
+            self?.delegate?.setPostDetail(with: post)
         }
     }
 }

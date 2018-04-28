@@ -38,7 +38,7 @@ extension UIImageView {
             image = placeholder
         }
         
-        let task = NetworkManager.shared.defaultUrlSession.dataTask(with: url) { data, response, error in
+        let task = NetworkManager.shared.defaultUrlSession.dataTask(with: url) { data, _, error in
             
             ActivityIndicatorManager.hideNetworkActivityIndicatorIfNeeded()
             
@@ -46,7 +46,7 @@ extension UIImageView {
             DispatchQueue.main.async() {
                 if loader != .none {
                     activityIndicatorView.stopAnimating()
-                    activityIndicatorView.removeFromSuperview()
+                    activityIndicatorView.removeFromSuperview() // removeFromSuperview calls release
                 }
             }
             
