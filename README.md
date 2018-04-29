@@ -141,7 +141,7 @@ extension MyEndPoint: EndPointType {
 }
 ```
 
-You can easily handle unauthorized by setting `AppDelegate` as `NetworkingAuthDelegate`. Declare `authRequired` as true for an end point means that each 401 response will handle the following delegate.
+You can easily handle unauthorized error by setting a `NetworkingAuthDelegate`. Declare `authRequired` as true for an end point means that each 401 response will handle the delegate.
 
 ```
 let router = Router<JSONPlaceholderEndPoint>()
@@ -156,8 +156,15 @@ extension CurrentClass: NetworkRouterDelegate {
 }
 ```
 
-Extending that protocol or setting it to AppDelegate can also be a way to handle 401 globally.
+Extending that protocol or setting it to `AppDelegate` can also be a way to handle 401 globally.
 
-# Why creating this lib 🤔 
+# Why another HTTP client for iOS 🤔 
+
+Before starting this library, I've always used Alamofire or ObjectMapper to handle network layer. It's good but my projects always started with a lot of dependencies because of that. I also wanted to have a deeper knowledge of the native framework `UrlSession`.
 
 # Next steps 💪
+
++ Multipart upload requests
++ Custom view for `setImage(with: URL?)` placeholder
++ Downloading and fast caching files (like audio or video)
++ ... ?
