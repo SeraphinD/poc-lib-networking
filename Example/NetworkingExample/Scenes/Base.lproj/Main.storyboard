@@ -35,8 +35,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="o6m-tL-Wkg"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dNI-tz-Zd5"/>
+                                    <outlet property="dataSource" destination="AK5-xG-xIy" id="5NG-nk-b9f"/>
+                                    <outlet property="delegate" destination="AK5-xG-xIy" id="Mvj-NB-uTb"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -51,14 +51,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="313-xl-ALQ"/>
                     <connections>
+                        <outlet property="postListDataSource" destination="AK5-xG-xIy" id="Jcr-la-94F"/>
                         <outlet property="postListPresenter" destination="tep-Ya-KjO" id="o9U-0I-PdJ"/>
-                        <outlet property="postListTableView" destination="zOn-fk-jbl" id="Wby-Ue-PWm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="tep-Ya-KjO" customClass="PostListPresenter" customModule="NetworkingExample" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="cW0-nu-xdQ"/>
+                    </connections>
+                </customObject>
+                <customObject id="AK5-xG-xIy" customClass="PostListDataSource" customModule="NetworkingExample" customModuleProvider="target">
+                    <connections>
+                        <outlet property="tableView" destination="zOn-fk-jbl" id="Xl5-Rf-6HB"/>
                     </connections>
                 </customObject>
             </objects>

@@ -24,6 +24,7 @@
 		89C73F9E20951139002BF934 /* JSONPlaceholderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C73F9D20951139002BF934 /* JSONPlaceholderService.swift */; };
 		89C73FA120951417002BF934 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C73FA020951417002BF934 /* DataManager.swift */; };
 		89C73FA620951976002BF934 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C73FA520951976002BF934 /* Presenter.swift */; };
+		89C73FA82095EE4C002BF934 /* PostListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C73FA72095EE4C002BF934 /* PostListDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 		89C73F9D20951139002BF934 /* JSONPlaceholderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderService.swift; sourceTree = "<group>"; };
 		89C73FA020951417002BF934 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		89C73FA520951976002BF934 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		89C73FA72095EE4C002BF934 /* PostListDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				899022D1208CAC860091D777 /* PostListPresenter.swift */,
 				8991F5952079707000DF8A35 /* PostListViewController.swift */,
+				89C73FA72095EE4C002BF934 /* PostListDatasource.swift */,
 				899022D6208CAF8F0091D777 /* PostListTableViewCell.swift */,
 			);
 			path = PostList;
@@ -284,6 +287,7 @@
 			files = (
 				8991F5962079707000DF8A35 /* PostListViewController.swift in Sources */,
 				89C73F9E20951139002BF934 /* JSONPlaceholderService.swift in Sources */,
+				89C73FA82095EE4C002BF934 /* PostListDatasource.swift in Sources */,
 				89C73FA120951417002BF934 /* DataManager.swift in Sources */,
 				89634BAC207970F200B6417E /* JSONPlaceholderEndPoint.swift in Sources */,
 				899022D7208CAF8F0091D777 /* PostListTableViewCell.swift in Sources */,
